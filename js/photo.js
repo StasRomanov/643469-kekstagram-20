@@ -55,6 +55,6 @@
 
   window.showPhoto = function () {
     createPhoto();
-    createBigPhoto();
+    // createBigPhoto();
   };
 })();
