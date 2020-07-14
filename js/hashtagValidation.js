@@ -6,7 +6,7 @@
   var unique = function (arr) {
     var result = [];
     for (var str of arr) {
-      if (!result.includes(str)) {
+      if (!result.includes(str.toLowerCase())) {
         result.push(str);
       }
     }
@@ -22,6 +22,7 @@
       return item.length <= 20;
     });
     validHashtag = unique(validHashtag);
+    validHashtag = validHashtag.slice(5);
     hashtagInput.value = String(validHashtag).replace(/,/gi, ' ');
     console.log(hashtagInput.value);
     window.uploadPhotoClose();
