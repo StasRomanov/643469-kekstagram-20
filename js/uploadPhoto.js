@@ -10,6 +10,16 @@
   var scaleContainer = document.querySelector('.img-upload__scale');
   var scaleValue = document.querySelector('.scale__control--value');
 
+  window.uploadPhotoClose = function () {
+    uploadPhotoInput.value = '';
+    scaleValue.value = '100%';
+    uploadPhotoImage.className = '';
+    uploadPhotoImage.style.transform = 'scale(1)';
+    uploadPhotoContainer.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+    effectList.removeEventListener('click', onEffectListChange, false);
+  };
+
   var onEffectListChange = function (evt) {
     if (evt.button === window.data.LEFT_MOUSE_CODE) {
       var target = evt.target;
@@ -38,26 +48,22 @@
     }
   };
 
-  uploadPhotoInput.addEventListener('change', function () {
+  var onUploadPhotoCancelClick = function (evt) {
+    if (evt.button === window.data.LEFT_MOUSE_CODE) {
+      window.uploadPhotoClose();
+    }
+  };
+
+  var onUploadPhotoInputChange = function () {
     uploadPhotoImage.style.transform = 'scale(1)';
     scaleValue.value = '100%';
     uploadPhotoContainer.classList.remove('hidden');
     document.body.classList.add('modal-open');
     uploadPhotoLevel.classList.add('hidden');
     effectList.addEventListener('click', onEffectListChange, false);
-  });
+  };
 
-  uploadPhotoCancel.addEventListener('click', function (evt) {
-    if (evt.button === window.data.LEFT_MOUSE_CODE) {
-      uploadPhotoInput.value = '';
-      scaleValue.value = '100%';
-      uploadPhotoImage.className = '';
-      uploadPhotoImage.style.transform = 'scale(1)';
-      uploadPhotoContainer.classList.add('hidden');
-      document.body.classList.remove('modal-open');
-      effectList.removeEventListener('click', onEffectListChange, false);
-    }
-  });
-
+  uploadPhotoInput.addEventListener('change', onUploadPhotoInputChange, false);
+  uploadPhotoCancel.addEventListener('click', onUploadPhotoCancelClick, false);
   scaleContainer.addEventListener('click', onScaleContainerClick, false);
 })();

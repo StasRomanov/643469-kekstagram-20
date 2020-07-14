@@ -38,12 +38,15 @@
   };
 
   var onErrorLoad = function () {
+    console.log('error load');
   };
 
   var onSuccessSend = function () {
+    console.log('Success send');
   };
 
   var onErrorSend = function () {
+    console.log('error send');
   };
 
   window.backend = {
@@ -51,13 +54,8 @@
       serverData(DATA_LINK_LOAD, onSuccessLoad, onErrorLoad, 'GET', '');
     },
 
-    send: function (evt) {
-      evt.preventDefault();
-      window.data.addressInput.removeAttribute('disabled');
-      window.data.activeStatus = false;
-      serverData(DATA_LINK_SEND, onSuccessSend, onErrorSend, 'POST', '');
+    send: function () {
+      serverData(DATA_LINK_SEND, onSuccessSend, onErrorSend, 'POST', new FormData(window.data.formBlock));
     }
   };
-
-  window.backend.load();
 })();
