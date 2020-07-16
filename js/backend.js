@@ -32,9 +32,13 @@
   var onSuccessLoad = function (data) {
     if (window.data.photos.length === 0) {
       window.data.photos = data;
+      window.data.photos.forEach(function (item, index) {
+        item.dataId = index;
+      });
     }
     console.log(window.data.photos);
     window.showPhoto();
+    window.setupFilter();
   };
 
   var onErrorLoad = function () {
