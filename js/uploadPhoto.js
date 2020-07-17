@@ -31,6 +31,10 @@
         uploadPhotoImage.className = '';
         uploadPhotoLevel.classList.add('hidden');
       }
+      window.filterEffect.line.style.width = '100%';
+      window.filterEffect.pin.style.left = '100%';
+      uploadPhotoImage.style = '';
+      window.data.currentFilterEffect = String(uploadPhotoImage.className).replace('effects__preview--', '');
     }
   };
 
