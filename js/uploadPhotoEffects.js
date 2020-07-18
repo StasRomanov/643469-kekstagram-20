@@ -34,6 +34,7 @@
       window.filterEffect.line.style.width = '100%';
       window.filterEffect.pin.style.left = '100%';
       uploadPhotoImage.style = '';
+      uploadPhotoImage.style.transform = 'scale(' + Number(scaleValue.value.replace('%', '')) / 100 + ')';
       window.data.currentFilterEffect = String(uploadPhotoImage.className).replace('effects__preview--', '');
     }
   };
