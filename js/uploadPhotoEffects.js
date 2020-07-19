@@ -56,6 +56,10 @@
   var onUploadPhotoCancelClick = function (evt) {
     if (evt.button === window.data.LEFT_MOUSE_CODE) {
       window.uploadPhotoClose();
+      uploadPhotoInput.addEventListener('change', onUploadPhotoInputChange, false);
+      effectList.removeEventListener('click', onEffectListChange, false);
+      uploadPhotoCancel.removeEventListener('click', onUploadPhotoCancelClick, false);
+      scaleContainer.removeEventListener('click', onScaleContainerClick, false);
     }
   };
 
@@ -66,9 +70,11 @@
     document.body.classList.add('modal-open');
     uploadPhotoLevel.classList.add('hidden');
     effectList.addEventListener('click', onEffectListChange, false);
+    uploadPhotoInput.removeEventListener('change', onUploadPhotoInputChange, false);
+    uploadPhotoCancel.addEventListener('click', onUploadPhotoCancelClick, false);
+    scaleContainer.addEventListener('click', onScaleContainerClick, false);
   };
 
   uploadPhotoInput.addEventListener('change', onUploadPhotoInputChange, false);
-  uploadPhotoCancel.addEventListener('click', onUploadPhotoCancelClick, false);
   scaleContainer.addEventListener('click', onScaleContainerClick, false);
 })();

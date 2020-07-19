@@ -47,6 +47,7 @@
 
   var onSuccessSend = function () {
     console.log('Success send');
+    window.uploadPhotoClose();
   };
 
   var onErrorSend = function () {

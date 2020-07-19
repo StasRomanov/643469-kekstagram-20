@@ -18,6 +18,8 @@
       evt.preventDefault();
       bigPicture.classList.add('hidden');
       document.body.classList.remove('modal-open');
+      bigPictureCancel.removeEventListener('click', onBigPictureCancelClick, false);
+      photoBlock.addEventListener('click', onPhotoBlockClick, false);
     }
   };
 
@@ -27,6 +29,8 @@
       if (target.classList.contains('picture__img')) {
         var pictureCurrentId = target.getAttribute('data-id');
         createBigPhoto(pictureCurrentId);
+        bigPictureCancel.addEventListener('click', onBigPictureCancelClick, false);
+        photoBlock.removeEventListener('click', onPhotoBlockClick, false);
       }
     }
   };
@@ -75,8 +79,6 @@
     });
     photoBlock.appendChild(fragment);
   };
-
-  bigPictureCancel.addEventListener('click', onBigPictureCancelClick, false);
 
   photoBlock.addEventListener('click', onPhotoBlockClick, false);
 

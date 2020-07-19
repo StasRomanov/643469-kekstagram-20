@@ -25,7 +25,6 @@
     validHashtag = unique(validHashtag);
     validHashtag = validHashtag.slice(5);
     hashtagInput.value = String(validHashtag).replace(/,/gi, ' ');
-    window.uploadPhotoClose();
     window.backend.send();
   };
 

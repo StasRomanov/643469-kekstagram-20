@@ -19,7 +19,6 @@
       var startCoords = {
         x: evt.clientX,
       };
-      console.log(effect.container.offsetWidth);
       var onMouseMove = function (moveEvt) {
         effect.input.classList.add('visually-hidden');
         var shift = {
