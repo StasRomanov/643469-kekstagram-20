@@ -18,6 +18,8 @@
     uploadPhotoContainer.classList.add('hidden');
     document.body.classList.remove('modal-open');
     effectList.removeEventListener('click', onEffectListChange, false);
+    uploadPhotoInput.addEventListener('change', onUploadPhotoInputChange, false);
+    scaleContainer.addEventListener('click', onScaleContainerClick, false);
   };
 
   var onEffectListChange = function (evt) {

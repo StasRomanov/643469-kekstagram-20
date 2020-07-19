@@ -22,7 +22,7 @@
   };
 
   var onPhotoBlockKeydown = function (evt) {
-    if (evt.code === window.data.ENTER_KEY_CODE) {
+    if (evt.code === window.data.ENTER_KEY_CODE && evt.target.tagName === 'A') {
       var target = evt.target.querySelector('img');
       openPhoto(target);
     }

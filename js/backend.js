@@ -46,12 +46,13 @@
   };
 
   var onSuccessSend = function () {
-    console.log('Success send');
     window.uploadPhotoClose();
+    window.showSuccessMessage();
   };
 
   var onErrorSend = function () {
-    console.log('error send');
+    window.uploadPhotoClose();
+    window.showErrorMessage();
   };
 
   window.backend = {
