@@ -3,15 +3,15 @@
 (function () {
   var hashtagInput = document.querySelector('.text__hashtags');
 
-  var unique = function (array) {
-    var result = [];
+  var mix = function (array) {
+    var results = [];
     array.forEach(function (item) {
       var currentItem = item.toLowerCase();
-      if (!result.includes(currentItem)) {
-        result.push(item);
+      if (!results.includes(currentItem)) {
+        results.push(item);
       }
     });
-    return result;
+    return results;
   };
 
   var onImgUploadButtonSubmit = function (evt) {
@@ -22,7 +22,7 @@
     validHashtag = validHashtag.filter(function (item) {
       return item.length <= 20;
     });
-    validHashtag = unique(validHashtag);
+    validHashtag = mix(validHashtag);
     validHashtag = validHashtag.slice(5);
     hashtagInput.value = String(validHashtag).replace(/,/gi, ' ');
     window.backend.send();

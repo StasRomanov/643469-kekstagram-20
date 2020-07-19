@@ -57,25 +57,27 @@
     }
   };
 
-  window.showSuccessMessage = function () {
-    var fragment = document.createDocumentFragment();
-    var successBlock = template.success.cloneNode(true).content;
-    var successButton = successBlock.querySelector('.success__button');
-    successButton.addEventListener('click', onSuccessButtonClick, false);
-    successButton.addEventListener('keydown', onSuccessButtonKeydown, false);
-    document.addEventListener('keydown', onDocumentKeydown, false);
-    fragment.appendChild(successBlock);
-    mainBlock.appendChild(fragment);
-  };
+  window.serverInfo = {
+    showSuccessMessage: function () {
+      var fragment = document.createDocumentFragment();
+      var successBlock = template.success.cloneNode(true).content;
+      var successButton = successBlock.querySelector('.success__button');
+      successButton.addEventListener('click', onSuccessButtonClick, false);
+      successButton.addEventListener('keydown', onSuccessButtonKeydown, false);
+      document.addEventListener('keydown', onDocumentKeydown, false);
+      fragment.appendChild(successBlock);
+      mainBlock.appendChild(fragment);
+    },
 
-  window.showErrorMessage = function () {
-    var fragment = document.createDocumentFragment();
-    var errorBlock = template.error.cloneNode(true).content;
-    var errorButton = errorBlock.querySelector('.error__button');
-    errorButton.addEventListener('click', onErrorButtonClick, false);
-    errorButton.addEventListener('keydown', onErrorButtonKeydown, false);
-    document.addEventListener('keydown', onDocumentKeydown, false);
-    fragment.appendChild(errorBlock);
-    mainBlock.appendChild(fragment);
+    showErrorMessage: function () {
+      var fragment = document.createDocumentFragment();
+      var errorBlock = template.error.cloneNode(true).content;
+      var errorButton = errorBlock.querySelector('.error__button');
+      errorButton.addEventListener('click', onErrorButtonClick, false);
+      errorButton.addEventListener('keydown', onErrorButtonKeydown, false);
+      document.addEventListener('keydown', onDocumentKeydown, false);
+      fragment.appendChild(errorBlock);
+      mainBlock.appendChild(fragment);
+    }
   };
 })();

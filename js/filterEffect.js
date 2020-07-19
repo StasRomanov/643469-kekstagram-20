@@ -9,7 +9,7 @@
     photo: document.querySelector('.img-upload__preview img')
   };
 
-  var onMainPinMove = function (evt) {
+  var onEffectPinMove = function (evt) {
     var onMouseUp = function () {
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
@@ -66,7 +66,7 @@
     }
   };
 
-  effect.pin.addEventListener('mousedown', onMainPinMove, false);
+  effect.pin.addEventListener('mousedown', onEffectPinMove, false);
 
   window.filterEffect = {
     line: effect.line,

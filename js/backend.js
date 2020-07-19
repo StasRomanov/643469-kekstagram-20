@@ -1,13 +1,15 @@
 'use strict';
 
 (function () {
-  var DATA_LINK_LOAD = 'https://javascript.pages.academy/kekstagram/data';
-  var DATA_LINK_SEND = 'https://javascript.pages.academy/kekstagram';
   var TIMEOUT_IN_MS = 10000;
   var STATUS_CODE_OK = 200;
   var JSON_TYPE = 'json';
+  var dataLink = {
+    load: 'https://javascript.pages.academy/kekstagram/data',
+    send: 'https://javascript.pages.academy/kekstagram'
+  };
 
-  var serverData = function (url, onSuccess, onError, method, send) {
+  var dataTransfer = function (url, onSuccess, onError, method, send) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = JSON_TYPE;
     xhr.open(method, url);
@@ -36,32 +38,30 @@
         item.dataId = index;
       });
     }
-    console.log(window.data.photos);
-    window.showPhoto();
-    window.setupFilter();
+    window.createPhoto(window.data.photos);
+    window.showFilter();
   };
 
   var onErrorLoad = function () {
-    console.log('error load');
   };
 
   var onSuccessSend = function () {
     window.uploadPhotoClose();
-    window.showSuccessMessage();
+    window.serverInfo.showSuccessMessage();
   };
 
   var onErrorSend = function () {
     window.uploadPhotoClose();
-    window.showErrorMessage();
+    window.serverInfo.showErrorMessage();
   };
 
   window.backend = {
     load: function () {
-      serverData(DATA_LINK_LOAD, onSuccessLoad, onErrorLoad, 'GET', '');
+      dataTransfer(dataLink.load, onSuccessLoad, onErrorLoad, 'GET', '');
     },
 
     send: function () {
-      serverData(DATA_LINK_SEND, onSuccessSend, onErrorSend, 'POST', new FormData(window.data.formBlock));
+      dataTransfer(dataLink.send, onSuccessSend, onErrorSend, 'POST', new FormData(window.data.formBlock));
     }
   };
 })();
