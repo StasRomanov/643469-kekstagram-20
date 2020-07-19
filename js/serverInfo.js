@@ -14,9 +14,10 @@
         document.removeEventListener('keydown', onErrorButtonKeydown, false);
       }
       if (message.classList.contains('success')) {
-        button.addEventListener('click', onSuccessButtonClick, false);
-        document.addEventListener('keydown', onSuccessButtonKeydown, false);
+        button.removeEventListener('click', onSuccessButtonClick, false);
+        document.removeEventListener('keydown', onSuccessButtonKeydown, false);
       }
+      document.removeEventListener('keydown', onDocumentKeydown, false);
       message.remove();
     }
   };
@@ -45,12 +46,24 @@
     }
   };
 
+  var onDocumentKeydown = function (evt) {
+    if (evt.code === window.data.ESC_KEY_CODE) {
+      if (document.querySelector('.error')) {
+        removePopup(document.querySelector('.error'), document.querySelector('.error__button'));
+      }
+      if (document.querySelector('.success')) {
+        removePopup(document.querySelector('.success'), document.querySelector('.success__button'));
+      }
+    }
+  };
+
   window.showSuccessMessage = function () {
     var fragment = document.createDocumentFragment();
     var successBlock = template.success.cloneNode(true).content;
     var successButton = successBlock.querySelector('.success__button');
     successButton.addEventListener('click', onSuccessButtonClick, false);
-    document.addEventListener('keydown', onSuccessButtonKeydown, false);
+    successButton.addEventListener('keydown', onSuccessButtonKeydown, false);
+    document.addEventListener('keydown', onDocumentKeydown, false);
     fragment.appendChild(successBlock);
     mainBlock.appendChild(fragment);
   };
@@ -60,7 +73,8 @@
     var errorBlock = template.error.cloneNode(true).content;
     var errorButton = errorBlock.querySelector('.error__button');
     errorButton.addEventListener('click', onErrorButtonClick, false);
-    document.addEventListener('keydown', onErrorButtonKeydown, false);
+    errorButton.addEventListener('keydown', onErrorButtonKeydown, false);
+    document.addEventListener('keydown', onDocumentKeydown, false);
     fragment.appendChild(errorBlock);
     mainBlock.appendChild(fragment);
   };
