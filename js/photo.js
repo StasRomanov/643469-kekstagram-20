@@ -12,6 +12,7 @@
   var bigPictureCommentsLoader = bigPicture.querySelector('.comments-loader');
   var bigPictureCommentsList = bigPicture.querySelector('.social__comments');
   var bigPictureCancel = bigPicture.querySelector('.big-picture__cancel');
+  var bigPictureCommentsInput = document.querySelector('.social__footer-text');
 
   var onPhotoBlockClick = function (evt) {
     if (evt.button === window.data.LEFT_MOUSE_CODE) {
@@ -35,7 +36,7 @@
   };
 
   var onBigPictureCancelKeydown = function (evt) {
-    if (evt.code === window.data.ESC_KEY_CODE) {
+    if (evt.code === window.data.ESC_KEY_CODE && document.activeElement !== bigPictureCommentsInput) {
       evt.preventDefault();
       closePhoto();
     }
