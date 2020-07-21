@@ -11,13 +11,30 @@
     "url": "https://github.com/htmlacademy-javascript/643469-kekstagram-20/issues"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "browser-sync": "^2.26.10",
     "eslint": "7.1.0",
-    "eslint-config-htmlacademy": "0.5.2"
+    "eslint-config-htmlacademy": "0.5.2",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgstore": "^7.0.1",
+    "gulp-webp": "^4.0.1",
+    "postcss": "^7.0.32",
+    "source-map": "^0.7.3"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "del": "^5.1.0"
+  },
   "scripts": {
-    "test": "eslint js/"
+    "test": "eslint source/js/"
   },
   "engines": {
     "node": "8.11"
