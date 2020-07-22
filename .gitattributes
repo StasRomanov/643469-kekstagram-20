@@ -3,3 +3,4 @@
 *.png -text
 *.gif -text
 *.mp4 -text
+*.webp -binary

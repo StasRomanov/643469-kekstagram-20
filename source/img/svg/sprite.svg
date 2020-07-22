@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>
+    <style>
+      .cls-1 {
+        fill: #ffe753;
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        font-size: 14px;
+      }
+
+      .cls-3 {
+        fill: #3c3614;
+        font-family: "OpenSans-Semibold";
+      }
+    </style>
+  </defs><symbol id="icon-cross" viewBox="0 0 21 21">
+  <path d="M20.875,2.668 L13.106,10.437 L20.871,18.203 L18.214,20.860 L10.449,13.095 L2.670,20.874 L0.013,18.217 L7.792,10.438 L0.009,2.654 L2.666,-0.003 L10.449,7.780 L18.218,0.011 L20.875,2.668 Z" class="cls-1"/>
+</symbol><symbol id="icon-warning" viewBox="0 0 58.875 51.875">
+  
+  <g>
+    <path d="M55.633,51.862 C52.914,51.862 5.199,51.862 3.324,51.862 C0.892,51.862 -0.918,49.346 0.505,46.860 C1.644,44.867 24.640,5.045 26.607,1.647 C27.899,-0.585 30.980,-0.548 32.274,1.647 C33.716,4.093 56.829,44.067 58.435,46.962 C59.613,49.081 58.312,51.862 55.633,51.862 Z" class="cls-1"/>
+    <text transform="translate(23.97 44.91) scale(2.89)" class="cls-2"><tspan class="cls-3">!</tspan></text>
+  </g>
+</symbol></svg>

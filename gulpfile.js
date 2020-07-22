@@ -145,16 +145,6 @@ gulp.task("normalize_move", function () {
     .pipe(gulp.dest('./build/css'));
 });
 
-// gulp.task("js_obfuscate", function () {
-//   return gulp.src('file.js')
-//     .pipe(sourcemaps.init())
-//     .pipe(javascriptObfuscate({
-//       compact: true
-//     }))
-//     .pipe(sourcemaps.write())
-//     .pipe(gulp.dest('./build/js'));
-// });
-
 gulp.task("admin", gulp.series("clean","css","css_admin","normalize_move","html_admin","photo","img","webp","sprite","js","fonts","icon_move"));
 
 gulp.task("start", gulp.series("css","webp", "server"));
